@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<style>
+ @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+    ::-webkit-scrollbar {
+  width: 6px;
+  /* height: 150px; */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgba(110, 148, 197, 0.5);; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background:#888888;;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background:rgba(3, 119, 235, 0.7); 
+}
+
+   
+    .result-count {
+        margin-top: 10px;
+        margin-bottom: 30px;
+        background: #FCFCFC;
+        border: 1px solid #E3E3E3;
+        box-sizing: border-box;
+        box-shadow: 0px 0px 4px rgba(183, 183, 183, 0.25);
+        border-radius: 12px;
+    }
+    .result-count >h2{
+        text-align: center;
+        font-family: Lato;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 26px;
+
+        color: #5F5F5F;
+        margin: 10px 0px;
+    }
+    .frist-top{
+        display: flex;
+        align-items: center;
+    
+        
+    }
+    .frist-top >h2{
+
+        font-family: Lato;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 20px;
+
+        color: #292929;
+    }
+    .applied-filers{
+        display: flex;
+        background: #FCFCFC;
+        border: 1px solid #CED4DA;
+        box-sizing: border-box;
+        border-radius: 4px;
+        align-items: center;
+        justify-content: center;
+        margin: 0px 8px;
+        min-width: 136px;
+        height: 44px;
+        padding: 0px 10px;
+
+    }
+    .applied-filers >h4{
+        padding-top: 5px;
+        font-family: Lato;
+font-style: normal;
+font-weight: normal;
+font-size: 17px;
+line-height: 20px;
+
+color: #5F5F5F;
+    }
+    .applied-filers >img{
+        height: 14px;
+        width: 14px;
+        /* margin: 0px 5px; */
+        margin-left: 10px;
+        cursor: pointer;
+    }
+    .filters{
+        margin-left: 10px;
+        display: flex;
+    }
+    .result{
+        margin-top: 30px;
+        background: #FCFCFC;
+        border: 1px solid #E3E3E3;
+        box-sizing: border-box;
+        box-shadow: 0px 0px 4px rgba(183, 183, 183, 0.25);
+        border-radius: 12px;
+        width: 100%;
+        /* height: 1632px; */
+        padding-right: 5px;
+    }
+    .single-result {
+        width: 332.5px;
+        height: 348px;
+        margin:  15px 0px;
+        /* background-color: red; */
+        /* padding:  0px 5px; */
+        border-radius: 12px ;
+        box-shadow: 0px 0px 4px rgba(183, 183, 183, 0.25);
+        border: 1px solid #E3E3E3;
+        box-sizing: border-box;
+        background: #FCFCFC;
+    }
+    .all-result {
+        margin-top: 40px;
+        padding:  0px 20px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+  
+    .upper-single{
+        display: flex;
+         flex-direction: column;
+        background-image: url('./img/Rectangle\ 20.png');
+        background-repeat: no-repeat;
+        height: 50%;
+        background-size: 100% 100%;
+
+ 
+
+    }
+
+
+     
+    .lower-single{
+        display: flex;
+        flex-direction: column;
+
+    }
+    .like-button{
+        display: inline-block;
+        margin: 6.5px 0px;
+        cursor: pointer;
+    }
+    .like-button >img{
+        position: relative;
+        left:140px;
+    }
+   .detail-section{
+       margin-top: 13px;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       padding: 0px 10px;
+   } 
+   .inner-detail{
+    margin: 0px 15px;
+       display:flex;
+       flex-direction: column;
+   }
+   .vertical-line{
+    border: 0.5px solid rgba(136, 136, 136, 0.7);
+  height: 50px;
+   }
+   .inner-detail >h6{
+    font-family: Lato;
+font-style: normal;
+font-weight: normal;
+font-size: 10px;
+line-height: 12px;
+/* identical to box height */
+
+
+color: #888888;
+   }
+   .inner-detail >p{
+    font-family: Lato;
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 17px;
+/* identical to box height */
+
+
+color: #525252;
+   }
+   .lower-single{
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+   }
+   .lower-single >hr {
+       width: 80%;
+       margin:8px 0px;
+   }
+   .apply-div {
+       display: flex;
+       justify-content: space-evenly;
+       align-items: center;
+
+   }
+   .apply-div button{
+    margin: 0px 17px;
+   }
+   .apply-button{
+    width: 114px;
+    border-style: none;
+height: 42px;
+ 
+    background: #0377EB;
+border-radius: 6px;
+font-family: Lato;
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 19px;
+
+color: #FCFCFC;
+   }
+   .download-button{
+    width: 114px;
+height: 42px;
+ 
+font-family: Lato;
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 19px;
+
+color: #0377EB;
+
+background: #FCFCFC;
+border: 1px solid #0377EB;
+box-sizing: border-box;
+border-radius: 6px;
+   }
+   .download-button>img{
+       margin: 0px 5px;
+   }
+   .upperimg{
+       display: inline;
+       position: absolute;
+       z-index: 1;
+       margin-top: -35px;
+        cursor: pointer;
+       
+       /* bottom: 100px; */
+       
+   }
+ 
+   
+.top-up{
+   margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.upper-left{
+
+ 
+background: #43CA03;
+border-radius: 0px 6px 6px 0px;
+width: 66px;
+height: 25px;
+  
+}
+.upper-left >p{
+  margin: 5px 0px;
+ text-align: center;
+  font-family: Lato;
+font-style: normal;
+font-weight: 700;
+font-size: 12px;
+line-height: 14px;
+
+color: #FCFCFC;
+}
+
+
+.upper-right{
+  width: 48px;
+height: 25px;
+ 
+
+background: #43CA03;
+border-radius: 6px 0px 0px 6px;
+
+}
+
+.upper-right >P{
+  margin: 5px 0px;
+ text-align: center;
+  font-family: Lato;
+font-style: normal;
+font-weight: 700;
+font-size: 12px;
+line-height: 14px;
+
+color: #FCFCFC;
+ 
+
+color: #FCFCFC;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   .mainoverflow{
+        padding: 10px 5px;
+        width: 100%;
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        background: #fff;
+border: 1px solid #E3E3E3;
+box-sizing: border-box;
+
+box-shadow: 0px 0px 4px rgba(183, 183, 183, 0.25);
+border-radius: 12px;
+    }
+#overflowTest {
+  
+ 
+  padding: 15px;
+  width: 250px;
+  height: 94px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  
+}
+::-webkit-scrollbar {
+  width: 6px;
+  /* height: 150px; */
+  background:rgba(208, 209, 211, 0.7);
+
+   
+  
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgba(110, 148, 197, 0.5);; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+#overflowTest::-webkit-scrollbar-thumb {
+    background:#686c70;
+  border-radius: 10px;
+}
+
+.mainoverflow::-webkit-scrollbar-thumb {
+    background:#0377EB;
+  border-radius: 10px;
+
+}
+
+
+.left-section-heading{
+    font-family: Lato;
+font-style: normal;
+font-weight: 900;
+font-size: 20px;
+line-height: 24px;
+/* identical to box height */
+
+
+color: #5F5F5F;
+
+}
+.left-section-atag{
+     border-style: none;
+    font-family: Lato;
+    background-color: #ffffff;
+font-style: normal;
+font-weight: 900;
+font-size: 17px;
+line-height: 20px;
+text-transform: uppercase;
+
+color: #0377EB;
+}
+#single-check-section{
+    border: none;
+    background-color: #fff;
+    font-family: Lato;
+font-style: normal;
+font-weight: 900;
+font-size: 17px;
+line-height: 20px;
+text-transform: uppercase;
+
+color: #5F5F5F;
+
+}
+
+#it-is-border-nonoe{
+    border: none;
+   
+}
+#it-is-border-nonoe:hover{
+    border: none;
+    
+}
+#it-is-border-bottom{
+    border: none;
+    border-bottom: 1px solid #C4C4C4;  
+}
+#search-input{   
+    padding: 1% 6%;
+    margin: 1% 1%;
+    background-image: url('./img/Group\ 252.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    outline: 0;
+    background-position: 12px;
+    background-size: 16px;
+    color:#979797;
+    width: 240px;
+height: 38px;
+    line-height: 2.375rem;
+    text-align: center;
+    border: 1px solid rgba(41, 41, 41, 0.25);
+box-sizing: border-box;
+border-radius: 6px;
+
+}
+.range-fienld{
+
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 20px;
+    text-transform: capitalize;
+    
+    color: #5F5F5F;
+    
+}
+#range-text{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 7rem;
+    border: 1px solid #979797;
+box-sizing: border-box;
+border-radius: 12px;
+
+}
+#dast-id {
+    vertical-align: middle;
+}
+.upper-single >img{
+  
+}
+
+.location-upper {
+    position:absolute;
+    margin-top: 131px;
+    margin-left: 65px;
+    
+     
+}
+.location-upper >h6{
+    font-family: Lato;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 17px;
+/* identical to box height */
+
+
+color: #FCFCFC;
+}
+.location-upper >p{
+    font-family: Lato;
+font-style: normal;
+font-weight: normal;
+font-size: 10px;
+line-height: 12px;
+/* identical to box height */
+
+
+color: #E3E3E3;
+
+}
+@media only screen and (max-width: 600px) {
+    .frist-top {
+        margin-top: 20px;
+        flex-direction: column;
+    }
+    .upper-left {
+        
+        
+        margin-right: 238px;
+    }
+    .upper-right{
+        margin-left: 254px;
+    }
+    .like-button > img {
+        position: relative;
+        left: 131px;
+    }
+}
+.youtube-div{
+  
+  margin-top: 65px;
+}
+ 
+   </style>
+<body>
+    
+<div class="container-fluid">
+    <div class="result-count">
+        
+        <h2>Total Results 350</h2>
+       
+    </div>
+    <div class="row ">
+  
+        <div  class=" col-lg-3  col-sm-12  col-xs-12 htch"> 
+            <div class="mainoverflow">
+
+                <div class="container my-3 d-flex justify-content-between">
+                    <h3 class="left-section-heading">Filters</h3>
+                    <a href="#" class="left-section-atag">clear all</a>
+                </div>
+            
+                <div class="accordion" id="accordionPanelsStayOpenExample" id="it-is-border-nonoe">
+                  
+            
+            
+                  <div class="accordion-item" id="it-is-border-nonoe">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingTwo" id="it-is-border-nonoe"  >
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo"
+                      id="single-check-section" 
+                      >
+                      Institute Type
+                      </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingTwo">
+                      <div class="accordion-body" id="it-is-border-bottom" >            
+            
+            
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                          <label class="form-check-label" for="flexRadioDefault1">
+                              College
+                          </label>
+                          </div>
+                          <div class="form-check">
+                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" >
+                          <label class="form-check-label" for="flexRadioDefault2">
+                           School
+                          </label>
+                          </div>
+                              </div>            
+                           
+            
+                      </div>
+                    </div>
+                  </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                    <div class="accordion-item" id="it-is-border-nonoe">
+                      <h2 class="accordion-header" id="panelsStayOpen-headingTwo" id="it-is-border-nonoe"  >
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo"
+                        id="single-check-section" 
+                        >
+                        course
+                        </button>
+                      </h2>
+                      <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingTwo">
+                        <div class="accordion-body" id="it-is-border-bottom">            
+            
+                                <!-- Actual search box -->
+                               <input type="text" id="search-input" placeholder="Search Course">
+                                
+                                
+                                <div id="overflowTest" class="my-2">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Diploman in Accounting and Finance
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Bchelors of Commerce 
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Bchelors of Commerce 
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Bchelors of Commerce 
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Bchelors of Commerce 
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Bchelors of Commerce 
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Bchelors of Commerce 
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Bchelors of Commerce 
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Bchelors of Commerce 
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Bchelors of Commerce 
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Bachelors of Computers
+                                    </label>
+                                  </div>
+                                </div>            
+                             
+            
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item"  id="it-is-border-nonoe">
+                      <h2 class="accordion-header" id="panelsStayOpen-headingThree"  id="it-is-border-nonoe">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree"
+                        id="single-check-section"  
+                        >
+                        course fees
+                        </button>
+                      </h2>
+                      <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingThree"  id="it-is-border-nonoe">
+                        <div class="accordion-body" id="it-is-border-bottom">
+                          
+            
+            <form action="#">
+            <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
+            <div class="container d-flex justify-content-between">
+              <label for="customRange3" class="form-label range-fienld">₹ 0</label>
+              <label for="customRange3" class="form-label range-fienld">₹ 15,00,000+ </label>
+            
+            </div>
+            <div class="container d-flex justify-content-between">
+              <div class="mb-3 ">
+                <label for="text" class="form-label">Min</label>
+                <input type="text" class="form-control  " id="range-text" placeholder="₹ 0">
+              </div>
+              <div class="mb-3 mx-2 " id="dast-id">
+                <label for="text" class="form-label"></label>
+                <p  class="mt-2">-</p>
+              </div>
+              <div class="mb-3  ">
+                <label for="text" class="form-label">Max</label>
+                <input type="text" class="form-control " id="range-text" placeholder="₹ 15,00,000">
+              </div>
+            </div>
+            </form>
+            
+                        </div>
+                      </div>
+                    </div>
+            
+                    <div class="accordion-item" id="it-is-border-nonoe">
+                      <h2 class="accordion-header" id="panelsStayOpen-headingFour" id="it-is-border-nonoe">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour"
+                        id="single-check-section" id="it-is-border-nonoe"
+                        >
+                        Affiliated to
+                        </button>
+                      </h2>
+                      <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFour">
+                        <div class="accordion-body" id="it-is-border-bottom">            
+            
+                               
+             <!-- Actual search box -->
+             <input type="text" id="search-input" placeholder="Search Affliated To">
+            
+            
+                                <div id="overflowTest" class="my-2">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Bangalore University
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Christ University
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Mysore University 
+                                    </label>
+                                  </div> 
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Mysore University 
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Mysore University 
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Mysore University 
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Mysore University 
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Mysore University 
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Mysore University 
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Mysore University 
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Mysore University 
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Mysore University 
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Mysore University 
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Mysore University 
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Mysore University 
+                                    </label>
+                                  </div> 
+            
+                                </div>            
+                             
+            
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item" id="it-is-border-nonoe">
+                      <h2 class="accordion-header" id="panelsStayOpen-headingFive" id="it-is-border-nonoe">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive"
+                        id="single-check-section" id="it-is-border-nonoe"
+                        >
+                        city / town
+                        </button>
+                      </h2>
+                      <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFive">
+                        <div class="accordion-body" id="it-is-border-bottom">            
+            
+            
+                                 <!-- Actual search box -->
+                               <input type="text" id="search-input" placeholder="Search City Or Town">
+                                <div id="overflowTest" class="my-2">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Bangalore , Bengaluru
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Chennai
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Hyderabad
+                                    </label>
+                                  </div> 
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                  Hyderabad
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                  Hyderabad
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                  Hyderabad
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                  Hyderabad
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                  Hyderabad
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                  Hyderabad
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                  Hyderabad
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                  Hyderabad
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                  Hyderabad
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                  Hyderabad
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                  Hyderabad
+                                    </label>
+                                  </div> <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                  Hyderabad
+                                    </label>
+                                  </div> 
+            
+                                </div>            
+                             
+            
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item" id="it-is-border-nonoe">
+                      <h2 class="accordion-header" id="panelsStayOpen-headingFive" id="it-is-border-nonoe">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive"
+                        id="single-check-section" id="it-is-border-nonoe"
+                        >
+                        college type
+                        </button>
+                      </h2>
+                      <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFive">
+                        <div class="accordion-body" id="it-is-border-bottom" >
+                         
+            
+                          <div class="form-check">
+                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                              <label class="form-check-label" for="flexRadioDefault1">
+                                All
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                              <label class="form-check-label" for="flexRadioDefault1">
+                                Government
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                              <label class="form-check-label" for="flexRadioDefault1">
+                                Aided
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" >
+                              <label class="form-check-label" for="flexRadioDefault2">
+                                Private
+                              </label> 
+                            </div>
+            
+            
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+        </div>
+        
+        
+        <div  class="  col-lg-9 col-sm-12  col-xs-12 htch">
+         <div class="frist-top">
+             <h4>APPLIED FILTERS</h4>
+           <div class="filters">
+            <div class="applied-filers">
+                 
+                <h4>Bangalore</h4>
+                <img src="./Group.png" alt="">
+             
+            </div>
+            <div class="applied-filers">
+                 
+                <h4>MBA/PGDMA</h4>
+                <img src="./Group.png" alt="">
+             
+            </div>
+           
+           </div>
+         </div>
+
+         <div class="result">
+             
+              <div class="all-result">
+                <div  class="single-result">
+                    <div class="upper-single">
+                      
+                      <div class="top-up">
+                        <div class="upper-left">
+                          <p>Featured</p>
+                  </div>
+
+                      <div class="upper-right">
+                        <p> 4.0 <img src="./Vector (3).png" alt=""></p>
+                    </div>
+                      </div>
+                      
+                        <div class="youtube-div">
+                         <center>
+                          <img src="./Vector.png" alt="">
+                         </center>
+                        </div>
+                       
+
+                    </div>
+                    <img class="upperimg" src="./Rectangle 21.png" alt="">
+                    <div class="lower-single">
+                        <div class="like-button">
+                            <img src="./Vector (1).png" alt="">
+                        </div>
+                        <div class="detail-section">
+                            <!-- details -->
+                              <div class="inner-detail">
+                                  <h6> Average yearly Fee</h6>
+                                  <p>8k - 72k</p>
+                              </div>  
+
+                              <div class="vertical-line">
+
+                              </div>
+                              <div class="inner-detail">
+                                <h6> Available  Courses</h6>
+                                <p>30 courses</p>
+                            </div>  
+                            <div class="vertical-line">
+
+                            </div>
+
+                            <div class="inner-detail"> 
+                                <h6>Rank</h6>
+                                <p>85</p>
+                            </div>  
+                        </div>
+
+                        <hr>
+                        <div class="apply-div">
+                            <!-- apply -->
+                            <button class="download-button">
+                             <img src="./Vector (2).png" alt="">
+                                Brochure
+                            </button>
+                            <button class="apply-button">
+                                Apply
+                            </button>
+                        </div>
+                    </div>
+                
+                </div>
+               
+                
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+               
+                
+              </div>
+                
+             
+         </div>
+        </div>
+      
+      </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
